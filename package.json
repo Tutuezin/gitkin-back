@@ -1,0 +1,26 @@
+{
+  "name": "gitkin-back",
+  "version": "1.0.0",
+  "description": "\":)\"",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest --no-cache",
+    "build": "tsc && npx prisma migrate deploy",
+    "start": "node dist/src/server.js",
+    "dev": "nodemon ./src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tutuezin/gitkin-back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tutuezin/gitkin-back/issues"
+  },
+  "homepage": "https://github.com/Tutuezin/gitkin-back#readme"
+}
