@@ -21,6 +21,7 @@ model User {
   createdAt             DateTime @default(now()) @db.Timestamp(6)
   socials               Social[]
   repositories          Repository[]
+  technologies          Technology[]
 
   @@map("users")
 }
@@ -51,6 +52,16 @@ url                   String
 createdAt             DateTime @default(now()) @db.Timestamp(6)
 
 @@map("repositories")
+}
+
+model Technology {
+id                    Int      @id @default(autoincrement())
+user                  User     @relation(fields: [userId], references: [id])
+userId                Int
+technologyName        String
+createdAt             DateTime @default(now()) @db.Timestamp(6)
+
+@@map("technologies")
 }
 
 
