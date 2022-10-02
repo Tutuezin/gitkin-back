@@ -19,6 +19,25 @@ model User {
   aboutMe               String? 
   occupation            String?  @db.VarChar(30)
   createdAt             DateTime @default(now()) @db.Timestamp(6)
+  socials               Social[]
 
   @@map("users")
 }
+
+model Social {
+  id                    Int      @id @default(autoincrement())
+  user                  User     @relation(fields: [userId], references: [id])
+  userId                Int
+  location              String?
+  work                  String?
+  github                String?
+  linkedin              String?
+  twitter               String?
+  website               String?
+  email                 String?
+  createdAt             DateTime @default(now()) @db.Timestamp(6)
+
+  @@map("socials")
+} 
+
+
