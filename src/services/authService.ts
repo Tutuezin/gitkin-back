@@ -5,8 +5,10 @@ import * as authRepository from "../repositories/authRepository";
 
 export async function signUp(userData: authTypes.IUserData) {
   const emailExists = await authRepository.findEmail(userData.email);
+  const userNameExists = await authRepository.findUserName(userData.userName);
 
   authUtils.verifyEmailExists(emailExists);
+  authUtils.verifyUserNameExists(userNameExists);
 
   const hashedPassword = await cryptoUtils.encryptPassword(userData.password);
 
