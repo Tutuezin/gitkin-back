@@ -9,6 +9,10 @@ export function verifyEmailExists(emailExists: User | null) {
   if (emailExists) throw conflictError("Email");
 }
 
+export function verifyUserNameExists(userExists: User | null) {
+  if (userExists) throw conflictError("User");
+}
+
 export function verifyEmailNotExists(emailExists: User | null) {
   if (!emailExists) throw unauthorizedError("Email or password");
 }
