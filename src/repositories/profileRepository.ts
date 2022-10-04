@@ -14,3 +14,17 @@ export async function getProfileInfos(user: string) {
   });
   return result;
 }
+
+export async function updateInfos(user: string, infos: object) {
+  const result = await prisma.user.update({
+    where: { userName: user },
+    select: {
+      userName: true,
+      picture: true,
+      aboutMe: true,
+      occupation: true,
+    },
+    data: infos,
+  });
+  return result;
+}
