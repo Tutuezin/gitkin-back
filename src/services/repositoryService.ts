@@ -11,3 +11,15 @@ export async function insertRepository(
 ) {
   return await repositoryRepository.insertRepository(userId, repositoryData);
 }
+
+export async function deleteRepository(
+  userId: number,
+  username: string,
+  repositoryId: number
+) {
+  return await repositoryRepository.deleteRepository(
+    userId,
+    username,
+    repositoryId
+  );
+}
