@@ -8,8 +8,15 @@ export async function getRepositories(userId: number) {
 
 export async function insertRepository(
   userId: number,
-  repositoryData: repositoryTypes.IRepositoryData
+  repositoryData: repositoryTypes.IRepositoryData,
+  username: string
 ) {
+  const userNameExists = await repositoryRepository.findUserName(username);
+  const userIdExists = await repositoryRepository.findUserId(userId);
+
+  repositoryUtils.verifyUserNameExists(userNameExists);
+  repositoryUtils.verifyUserIdExists(userIdExists);
+
   return await repositoryRepository.insertRepository(userId, repositoryData);
 }
 

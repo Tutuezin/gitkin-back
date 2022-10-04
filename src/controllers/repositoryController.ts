@@ -15,7 +15,8 @@ export async function insertRepository(req: Request, res: Response) {
 
   const repository = await repositoryService.insertRepository(
     Number(userId),
-    repositoryData
+    repositoryData,
+    username
   );
 
   res.status(201).send(repository);
