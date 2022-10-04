@@ -1,4 +1,3 @@
-import { info } from "console";
 import { Request, Response } from "express";
 import * as profileService from "../services/profileService";
 
