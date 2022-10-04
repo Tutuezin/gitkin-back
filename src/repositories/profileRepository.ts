@@ -7,8 +7,8 @@ export async function getProfileInfos(user: string) {
       picture: true,
       occupation: true,
       createdAt: true,
-      socials: true,
       aboutMe: true,
+      socials: true,
     },
     where: { userName: user },
   });
