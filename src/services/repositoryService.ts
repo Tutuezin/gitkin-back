@@ -17,9 +17,5 @@ export async function deleteRepository(
   username: string,
   repositoryId: number
 ) {
-  return await repositoryRepository.deleteRepository(
-    userId,
-    username,
-    repositoryId
-  );
+  return await repositoryRepository.deleteRepository(repositoryId);
 }
