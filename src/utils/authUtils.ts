@@ -18,9 +18,13 @@ export function verifyEmailNotExists(emailExists: User | null) {
 }
 
 export function generateToken(user: User) {
-  const token = jwt.sign({ id: user.id }, String(process.env.JWT_SECRET), {
-    expiresIn: "24h",
-  });
+  const token = jwt.sign(
+    { id: user.id, userName: user.userName },
+    String(process.env.JWT_SECRET),
+    {
+      expiresIn: "24h",
+    }
+  );
 
   return token;
 }
