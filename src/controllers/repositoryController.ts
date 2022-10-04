@@ -20,3 +20,16 @@ export async function insertRepository(req: Request, res: Response) {
 
   res.status(201).send(repository);
 }
+
+export async function deleteRepository(req: Request, res: Response) {
+  const { username, userId } = req.params;
+  const { repositoryId } = req.body;
+
+  const repository = await repositoryService.deleteRepository(
+    Number(userId),
+    username,
+    Number(repositoryId)
+  );
+
+  res.status(200).send(repository);
+}
