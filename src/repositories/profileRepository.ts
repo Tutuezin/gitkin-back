@@ -1,4 +1,5 @@
 import { prisma } from "../config/database";
+import * as profileTypes from "../types/profileTypes";
 
 export async function getProfileInfos(user: string) {
   const result = await prisma.user.findUnique({
@@ -15,7 +16,10 @@ export async function getProfileInfos(user: string) {
   return result;
 }
 
-export async function updateInfos(user: string, infos: object) {
+export async function updateInfos(
+  user: string,
+  infos: profileTypes.IProfileData
+) {
   const result = await prisma.user.update({
     where: { userName: user },
     select: {
