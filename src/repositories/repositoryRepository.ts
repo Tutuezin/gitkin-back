@@ -17,3 +17,10 @@ export async function insertRepository(
   });
   return result;
 }
+
+export async function deleteRepository(repositoryId: number) {
+  const result = await prisma.repository.delete({
+    where: { id: repositoryId },
+  });
+  return result;
+}
