@@ -1,5 +1,6 @@
 import * as repositoryRepository from "../repositories/repositoryRepository";
 import * as repositoryTypes from "../types/repositoryTypes";
+import * as repositoryUtils from "../utils/repositoryUtils";
 
 export async function getRepositories(userId: number) {
   return await repositoryRepository.getRepositories(userId);
@@ -17,5 +18,15 @@ export async function deleteRepository(
   username: string,
   repositoryId: number
 ) {
+  const userNameExists = await repositoryRepository.findUserName(username);
+  const userIdExists = await repositoryRepository.findUserId(userId);
+  const repositoryIdExists = await repositoryRepository.findRepositoryId(
+    repositoryId
+  );
+
+  repositoryUtils.verifyUserNameExists(userNameExists);
+  repositoryUtils.verifyUserIdExists(userIdExists);
+  repositoryUtils.verifyRepositoryIdExists(repositoryIdExists);
+
   return await repositoryRepository.deleteRepository(repositoryId);
 }

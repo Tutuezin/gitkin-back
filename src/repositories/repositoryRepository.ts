@@ -24,3 +24,23 @@ export async function deleteRepository(repositoryId: number) {
   });
   return result;
 }
+
+export async function findUserName(userName: string) {
+  const result = await prisma.user.findUnique({ where: { userName } });
+
+  return result;
+}
+
+export async function findUserId(userId: number) {
+  const result = await prisma.user.findUnique({ where: { id: userId } });
+
+  return result;
+}
+
+export async function findRepositoryId(repositoryId: number) {
+  const result = await prisma.repository.findUnique({
+    where: { id: repositoryId },
+  });
+
+  return result;
+}
