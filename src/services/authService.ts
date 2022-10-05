@@ -27,5 +27,9 @@ export async function signIn(userData: authTypes.IUserData) {
   cryptoUtils.checkPassword(userData.password, emailExists!.password);
   const token = authUtils.generateToken(emailExists!);
 
-  return token;
+  const body = {
+    userName: emailExists?.userName,
+  };
+
+  return { token, body };
 }
