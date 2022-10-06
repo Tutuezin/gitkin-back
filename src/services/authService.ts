@@ -14,6 +14,7 @@ export async function signUp(userData: authTypes.IUserData) {
 
   return await authRepository.insertUser({
     email: userData.email,
+    name: userData.name,
     userName: userData.userName,
     password: hashedPassword,
   });

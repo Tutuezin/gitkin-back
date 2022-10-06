@@ -14,5 +14,12 @@ export async function findUserName(userName: string) {
 }
 
 export async function insertUser(user: authTypes.IUserData) {
-  return await prisma.user.create({ data: user });
+  return await prisma.user.create({
+    select: {
+      email: true,
+      name: true,
+      userName: true,
+    },
+    data: user,
+  });
 }
