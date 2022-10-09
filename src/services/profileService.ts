@@ -11,3 +11,11 @@ export async function updateInfos(
 ) {
   return await profileRepository.updateInfos(user, infos);
 }
+
+export async function updateSocials(
+  userId: number,
+  userName: string,
+  socials: object
+) {
+  return await profileRepository.updateSocials({ userId, userName, socials });
+}
