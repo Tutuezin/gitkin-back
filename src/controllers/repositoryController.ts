@@ -23,13 +23,12 @@ export async function insertRepository(req: Request, res: Response) {
 }
 
 export async function deleteRepository(req: Request, res: Response) {
-  const { username, userId } = req.params;
-  const { repositoryId } = req.body;
+  const { username, userId, repoId } = req.params;
 
   const repository = await repositoryService.deleteRepository(
     Number(userId),
     username,
-    Number(repositoryId)
+    Number(repoId)
   );
 
   res.status(200).send(repository);

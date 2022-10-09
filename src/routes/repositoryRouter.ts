@@ -19,7 +19,7 @@ repositoryRouter.post(
 );
 
 repositoryRouter.delete(
-  "/:username/repository/:userId",
+  "/:username/repository/:userId/:repoId",
   validateToken,
   repositoryController.deleteRepository
 );
