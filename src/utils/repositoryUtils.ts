@@ -10,7 +10,5 @@ export function verifyUserIdExists(userExists: User | null) {
 }
 
 export function verifyRepositoryIdExists(repositoryExists: Repository | null) {
-  console.log(repositoryExists);
-
   if (!repositoryExists) throw notFoundError("repository id");
 }
