@@ -17,3 +17,16 @@ export async function updateInfos(req: Request, res: Response) {
 
   res.status(200).send(result);
 }
+
+export async function updateSocials(req: Request, res: Response) {
+  const { userId, username } = req.params;
+  const socials = req.body;
+
+  const result = await profileService.updateSocials(
+    Number(userId),
+    username,
+    socials
+  );
+
+  res.status(200).send(result);
+}
