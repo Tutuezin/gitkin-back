@@ -84,7 +84,7 @@ export async function updateSocials({ userId, userName, socials }: any) {
   profileUtils.verifyUserNameExists(userNameExists);
   profileUtils.verifyUser(userExists?.name, userNameExists?.name);
 
-  const teste = {
+  const body = {
     userId: userId,
     ...socials,
   };
@@ -95,7 +95,7 @@ export async function updateSocials({ userId, userName, socials }: any) {
         data: socials,
       })
     : await prisma.social.create({
-        data: teste,
+        data: body,
       });
 
   return result;
