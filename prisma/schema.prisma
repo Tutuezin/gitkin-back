@@ -51,6 +51,7 @@ repositoryName        String
 description           String
 url                   String
 createdAt             DateTime @default(now()) @db.Timestamp(6)
+updatedAt             DateTime @updatedAt
 
 @@map("repositories")
 }
