@@ -18,6 +18,16 @@ export async function insertRepository(
   return result;
 }
 
+export async function editRepository(
+  repositoryId: number,
+  repositoryInfo: repositoryTypes.IRepositoryData
+) {
+  return await prisma.repository.update({
+    where: { id: repositoryId },
+    data: repositoryInfo,
+  });
+}
+
 export async function deleteRepository(repositoryId: number) {
   const result = await prisma.repository.delete({
     where: { id: repositoryId },
